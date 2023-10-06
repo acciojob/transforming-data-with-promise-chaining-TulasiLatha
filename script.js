@@ -1,31 +1,56 @@
-//your JS code here. If requir
-document.addEventListener("DOMContentLoaded", () => {
- const input = document.getElementById("ip");
-  const button = document.getElementById("btn");
-  const output = document.getElementById("output");
+const input = document.getElementById("ip");
+const output = document.getElementById("output");
+const btn = document.getElementById("btn");
 
-	function createPromiseWithDelay(delay,callback){
-		return new Promise((resolve)=>{
-			setTimeout(()=>{
-				resolve(callback());
-			},delay)
-		})
-	}
-button.addEventListener("click",()=>{
-	const inputValue=parseFloat(input.value);//converting into number
+btn.addEventListener("click", () => {
+  const promise1 = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(parseInt(input.value));
+    }, 2000);
+  });
 
-	createPromiseWithDelay(2000, ()=>inputValue)//created promise
-		 .then((Result) => createPromiseWithDelay(2000, () => Result))
-	.then((Result)=>createPromiseWithDelay(1000, ()=>Result*2))
-	.then((Result)=>createPromiseWithDelay(1000, ()=>Result-3))
-	.then((Result)=>createPromiseWithDelay(1000,()=>Result/2))
-	.then((Result)=>createPromiseWithDelay(1000, ()=>Result+10))
-	.then((finalResult)=>{
-		output.textContent=`Final Result: ${finalResult}`;
-		
-	})
-	.catch((error)=>{
-		console.error(error);
-	})
-})
-})
+  promise1
+    .then((result) => {
+      output.textContent = `Result: ${result}`;
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(result);
+        }, 2000);
+      });
+    })
+    .then((result) => {
+      output.textContent = `Result: ${result}`;
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(result * 2);
+        }, 1000);
+      });
+    })
+    .then((result) => {
+      output.textContent = `Result: ${result}`;
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(result - 3);
+        }, 1000);
+      });
+    })
+    .then((result) => {
+      output.textContent = `Result: ${result}`;
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(result / 2);
+        }, 1000);
+      });
+    })
+    .then((result) => {
+      output.textContent = `Result: ${result}`;
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(result + 10);
+        }, 1000);
+      });
+    })
+    .then((result) => {
+      output.textContent = `Final Result: ${result}`;
+    });
+});
