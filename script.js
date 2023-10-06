@@ -18,7 +18,7 @@ button.addEventListener("click",()=>{
 	.then((result)=>createPromiseWithDelay(1000, ()=>result*2))
 	.then((result)=>createPromiseWithDelay(1000, ()=>result-3))
 	.then((result)=>createPromiseWithDelay(1000,()=>result/2))
-	.then((result)=>createPromiseWithDelay(1000, ()=>result+2))
+	.then((result)=>createPromiseWithDelay(1000, ()=>result+10))
 	.then((finalResult)=>{
 		output.textContent=`finalresult:${finalResult}`;
 		
