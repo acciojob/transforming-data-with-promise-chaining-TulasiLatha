@@ -17,10 +17,10 @@ button.addEventListener("click",()=>{
 
 	createPromiseWithDelay(2000, ()=>inputValue)//created promise
 		 .then((result) => createPromiseWithDelay(2000, () => result))
-	.then((result)=>createPromiseWithDelay(1000, ()=>result*2))
-	.then((result)=>createPromiseWithDelay(1000, ()=>result-3))
-	.then((result)=>createPromiseWithDelay(1000,()=>result/2))
-	.then((result)=>createPromiseWithDelay(1000, ()=>result+10))
+	.then((Result)=>createPromiseWithDelay(1000, ()=>Result*2))
+	.then((Result)=>createPromiseWithDelay(1000, ()=>Result-3))
+	.then((Result)=>createPromiseWithDelay(1000,()=>Result/2))
+	.then((Result)=>createPromiseWithDelay(1000, ()=>Result+10))
 	.then((finalResult)=>{
 		output.textContent=`Final Result: ${finalResult}`;
 		
