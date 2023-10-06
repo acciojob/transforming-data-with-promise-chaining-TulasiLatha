@@ -6,7 +6,7 @@ const input=document.getElementById("ip");
 
 	function createPromiseWithDelay(delay,callback){
 		return new Promise((resolve)=>{
-			setTimeOut(()=>{
+			setTimeout(()=>{
 				resolve(callback());
 			},delay)
 		})
