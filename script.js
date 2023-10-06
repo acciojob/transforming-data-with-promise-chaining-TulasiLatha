@@ -22,7 +22,7 @@ button.addEventListener("click",()=>{
 	.then((result)=>createPromiseWithDelay(1000,()=>result/2))
 	.then((result)=>createPromiseWithDelay(1000, ()=>result+10))
 	.then((finalResult)=>{
-		output.textContent=`finalresult:${finalResult}`;
+		output.textContent=`Final Result: ${finalResult}`;
 		
 	})
 	.catch((error)=>{
