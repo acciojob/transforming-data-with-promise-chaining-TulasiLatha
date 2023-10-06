@@ -16,6 +16,7 @@ button.addEventListener("click",()=>{
 	const inputValue=parseFloat(input.value);//converting into number
 
 	createPromiseWithDelay(2000, ()=>inputValue)//created promise
+		 .then((result) => createPromiseWithDelay(2000, () => result))
 	.then((result)=>createPromiseWithDelay(1000, ()=>result*2))
 	.then((result)=>createPromiseWithDelay(1000, ()=>result-3))
 	.then((result)=>createPromiseWithDelay(1000,()=>result/2))
