@@ -2,7 +2,7 @@
 const button=document.getElementById("btn");
 
 const output=document.getElementById("output");
-const input=document.getElementByid("ip");
+const input=document.getElementById("ip");
 
 	function createPromiseWithDelay(delay,callback){
 		return new Promise((resolve)=>{
